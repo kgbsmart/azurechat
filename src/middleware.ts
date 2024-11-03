@@ -9,7 +9,11 @@ const requireAuth: string[] = [
   "/persona",
   "/prompt"
 ];
-const requireAdmin: string[] = ["/reporting"];
+//Hide the extensions page from non-admin users
+const requireAdmin: string[] = [
+  "/reporting",
+  "/extensions",
+];
 
 export async function middleware(request: NextRequest) {
   const res = NextResponse.next();
