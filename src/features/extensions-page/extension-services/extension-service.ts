@@ -87,7 +87,7 @@ export const CreateExtension = async (
     if (!user.isAdmin) {
       return {
         status: "ERROR",
-        errors: [{ messege: "You are not authorized to perform this action" }],
+        errors: [{ message: "You are not authorized to perform this action" }],
       };
     }
 
