@@ -71,9 +71,18 @@ async function executeCreateImage(
   try {
     response = await openAI.images.generate(
       {
-        model: "dall-e-3",
+        // モデルを gpt-image-1-mini に変更
+        // model: "dall-e-3",
+        model: "gpt-image-1-mini",
+        // 内部的には args.prompt を使うか userMessage を使うかは用途に応じて調整
         prompt: userMessage,
-        response_format: "b64_json",
+        // gpt-image-1 系は常に b64_json で返ってくるため response_format は指定しない
+        // response_format: "b64_json",
+        // 必要であれば以下のような追加パラメータを渡せます:
+        // size: "1024x1024",
+        // quality: "medium",
+        // background: "opaque",
+        // output_format: "png",
       },
       {
         signal,
